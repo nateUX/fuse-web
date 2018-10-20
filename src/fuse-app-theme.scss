@@ -1,0 +1,566 @@
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+$fuse-grey: (
+  50: #fafafa,
+  100: #f5f5f5,
+  200: #eeeeee,
+  300: #e0e0e0,
+  400: #bdbdbd,
+  500: #9e9e9e,
+  600: #757575,
+  700: #616161,
+  800: #424242,
+  900: #212121,
+  A100: #ffffff,
+  A200: #eeeeee,
+  A400: #bdbdbd,
+  A700: #616161,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $dark-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $light-primary-text,
+  )
+);
+
+$fuse-blue: (
+  50: #abd9fc,
+  100: #7ac3fa,
+  200: #49acf8,
+  300: #1896f7,
+  400: #087bd4,
+  500: #065fa3,
+  600: #05508a,
+  700: #044271,
+  800: #033459,
+  900: #022540,
+  A100: #82b1ff,
+  A200: #448aff,
+  A400: #2979ff,
+  A700: #2962ff,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  )
+);
+
+$fuse-red: (
+  50: #fae9e7,
+  100: #fdcbbd,
+  200: #fca992,
+  300: #fc8867,
+  400: #fb6d46,
+  500: #fb5427,
+  600: #f04e23,
+  700: #e2471e,
+  800: #d4401a,
+  900: #bb3412,
+  A100: #fdcbbd,
+  A200: #fca992,
+  A400: #fb6d46,
+  A700: #e2471e,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $dark-primary-text,
+  )
+);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$primary: mat-palette($fuse-blue);
+$accent:  mat-palette($fuse-grey, A700, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$warn:    mat-palette($fuse-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$theme: mat-light-theme($primary, $accent, $warn);
+
+// // Include theme styles for core and each component used in your app.
+// // Alternatively, you can import and @include the theme mixins for each component
+// // that you are using.
+
+// Theme styles that apply to all appearances of the form-field.
+
+@mixin mat-form-field-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  // Label colors. Required is used for the `*` star shown in the label.
+  $label-color: mat-color($foreground, secondary-text, if($is-dark-theme, 0.7, 0.6));
+  $focused-label-color: mat-color($primary,if($is-dark-theme, 200, 500));
+  $required-label-color: mat-color($accent);
+
+  // Underline colors.
+  $underline-color-base: mat-color($foreground, divider, if($is-dark-theme, 1, 0.87));
+  $underline-color-accent: mat-color($accent);
+  $underline-color-warn: mat-color($warn);
+  $underline-focused-color: mat-color($primary, if($is-dark-theme, 200, 500));
+
+  .mat-form-field-label {
+    color: $label-color;
+  }
+
+  .mat-hint {
+    color: $label-color;
+  }
+
+  .mat-form-field.mat-focused .mat-form-field-label {
+    color: $focused-label-color;
+
+    &.mat-accent {
+      color: $underline-color-accent;
+    }
+
+    &.mat-warn {
+      color: $underline-color-warn;
+    }
+  }
+
+  .mat-focused .mat-form-field-required-marker {
+    color: $required-label-color;
+  }
+
+  .mat-form-field-ripple {
+    background-color: $underline-color-base;
+  }
+
+  .mat-form-field.mat-focused {
+    .mat-form-field-ripple {
+      background-color: $underline-focused-color;
+
+      &.mat-accent {
+        background-color: $underline-color-accent;
+      }
+
+      &.mat-warn {
+        background-color: $underline-color-warn;
+      }
+    }
+  }
+
+  // Styling for the error state of the form field. Note that while the same can be
+  // achieved with the ng-* classes, we use this approach in order to ensure that the same
+  // logic is used to style the error state and to show the error messages.
+  .mat-form-field.mat-form-field-invalid {
+    .mat-form-field-label {
+      color: $underline-color-warn;
+
+      &.mat-accent,
+      .mat-form-field-required-marker {
+        color: $underline-color-warn;
+      }
+    }
+
+    .mat-form-field-ripple,
+    .mat-form-field-ripple.mat-accent {
+      background-color: $underline-color-warn;
+    }
+  }
+
+  .mat-error {
+    color: $underline-color-warn;
+  }
+
+  @include mat-form-field-legacy-theme($theme);
+  @include mat-form-field-standard-theme($theme);
+  @include mat-form-field-fill-theme($theme);
+  @include mat-form-field-outline-theme($theme);
+}
+
+// Used to make instances of the _mat-form-field-label-floating mixin negligibly different,
+// and prevent Google's CSS Optimizer from collapsing the declarations. This is needed because some
+// of the selectors contain pseudo-classes not recognized in all browsers. If a browser encounters
+// an unknown pseudo-class it will discard the entire rule set.
+$mat-form-field-dedupe: 0;
+
+// Applies a floating label above the form field control itself.
+@mixin _mat-form-field-label-floating($font-scale, $infix-padding, $infix-margin-top) {
+  transform: translateY(-$infix-margin-top - $infix-padding + $mat-form-field-dedupe)
+             scale($font-scale);
+  width: 100% / $font-scale + $mat-form-field-dedupe;
+
+  $mat-form-field-dedupe: $mat-form-field-dedupe + 0.00001 !global;
+}
+
+@mixin mat-form-field-typography($config) {
+  // The unit-less line-height from the font config.
+  $line-height: mat-line-height($config, input);
+
+  // The amount to scale the font for the floating label and subscript.
+  $subscript-font-scale: 0.75;
+  // The amount to scale the font for the prefix and suffix icons.
+  $prefix-suffix-icon-font-scale: 1.5;
+
+  // The padding on the infix. Mocks show half of the text size.
+  $infix-padding: 0.5em;
+  // The margin applied to the form-field-infix to reserve space for the floating label.
+  $infix-margin-top: 1em * $line-height * $subscript-font-scale;
+  // Font size to use for the label and subscript text.
+  $subscript-font-size: $subscript-font-scale * 100%;
+  // Font size to use for the for the prefix and suffix icons.
+  $prefix-suffix-icon-font-size: $prefix-suffix-icon-font-scale * 100%;
+  // The space between the bottom of the .mat-form-field-flex area and the subscript wrapper.
+  // Mocks show half of the text size, but this margin is applied to an element with the subscript
+  // text font size, so we need to divide by the scale factor to make it half of the original text
+  // size.
+  $subscript-margin-top: 0.5em / $subscript-font-scale;
+  // The padding applied to the form-field-wrapper to reserve space for the subscript, since it's
+  // absolutely positioned. This is a combination of the subscript's margin and line-height, but we
+  // need to multiply by the subscript font scale factor since the wrapper has a larger font size.
+  $wrapper-padding-bottom: ($subscript-margin-top + $line-height) * $subscript-font-scale;
+
+  .mat-form-field {
+    @include mat-typography-level-to-styles($config, input);
+  }
+
+  .mat-form-field-wrapper {
+    padding-bottom: $wrapper-padding-bottom;
+  }
+
+  .mat-form-field-prefix,
+  .mat-form-field-suffix {
+    // Allow icons in a prefix or suffix to adapt to the correct size.
+    .mat-icon {
+      font-size: $prefix-suffix-icon-font-size;
+      line-height: $line-height;
+    }
+
+    // Allow icon buttons in a prefix or suffix to adapt to the correct size.
+    .mat-icon-button {
+      height: $prefix-suffix-icon-font-scale * 1em;
+      width: $prefix-suffix-icon-font-scale * 1em;
+
+      .mat-icon {
+        height: $line-height * 1em;
+        line-height: $line-height;
+      }
+    }
+  }
+
+  .mat-form-field-infix {
+    padding: $infix-padding 0;
+    // Throws off the baseline if we do it as a real margin, so we do it as a border instead.
+    border-top: $infix-margin-top solid transparent;
+  }
+
+  .mat-form-field-can-float {
+    &.mat-form-field-should-float .mat-form-field-label,
+    .mat-input-server:focus + .mat-form-field-label-wrapper .mat-form-field-label {
+      @include _mat-form-field-label-floating(
+              $subscript-font-scale, $infix-padding, $infix-margin-top);
+    }
+
+    // Server-side rendered matInput with a label attribute but label not shown
+    // (used as a pure CSS stand-in for mat-form-field-should-float).
+    .mat-input-server[label]:not(:label-shown) + .mat-form-field-label-wrapper
+        .mat-form-field-label {
+      @include _mat-form-field-label-floating(
+              $subscript-font-scale, $infix-padding, $infix-margin-top);
+    }
+  }
+
+  .mat-form-field-label-wrapper {
+    top: -$infix-margin-top;
+    padding-top: $infix-margin-top;
+  }
+
+  .mat-form-field-label {
+    top: $infix-margin-top + $infix-padding;
+  }
+
+  .mat-form-field-underline {
+    // We want the underline to start at the end of the content box, not the padding box,
+    // so we move it up by the padding amount.
+    bottom: $wrapper-padding-bottom;
+  }
+
+  .mat-form-field-subscript-wrapper {
+    font-size: $subscript-font-size;
+    margin-top: $subscript-margin-top;
+
+    // We want the subscript to start at the end of the content box, not the padding box,
+    // so we move it up by the padding amount (adjusted for the smaller font size);
+    top: calc(100% - #{$wrapper-padding-bottom / $subscript-font-scale});
+  }
+
+  @include mat-form-field-legacy-typography($config);
+  @include mat-form-field-standard-typography($config);
+  @include mat-form-field-fill-typography($config);
+  @include mat-form-field-outline-typography($config);
+}
+
+@mixin mat-checkbox-theme($theme) {
+  $is-dark-theme: map-get($theme, is-dark);
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+
+
+  // The color of the checkbox's checkmark / mixedmark.
+  $checkbox-mark-color: mat-color($background, background);
+
+  // NOTE(traviskaufman): While the spec calls for translucent blacks/whites for disabled colors,
+  // this does not work well with elements layered on top of one another. To get around this we
+  // blend the colors together based on the base color and the theme background.
+  $white-30pct-opacity-on-dark: #686868;
+  $black-26pct-opacity-on-light: #b0b0b0;
+  $disabled-color: if($is-dark-theme, $white-30pct-opacity-on-dark, $black-26pct-opacity-on-light);
+
+  .mat-checkbox-frame {
+    border-color: mat-color(map-get($theme, foreground), secondary-text);
+  }
+
+  .mat-checkbox-checkmark {
+    fill: $checkbox-mark-color;
+  }
+
+  .mat-checkbox-checkmark-path {
+    // !important is needed here because a stroke must be set as an
+    // attribute on the SVG in order for line animation to work properly.
+    stroke: $checkbox-mark-color !important;
+
+    @include cdk-high-contrast(black-on-white) {
+      // Having the one above be !important ends up overriding the browser's automatic
+      // color inversion so we need to re-invert it ourselves for black-on-white.
+      stroke: #000 !important;
+    }
+  }
+
+  .mat-checkbox-mixedmark {
+    background-color: $checkbox-mark-color;
+  }
+
+  .mat-checkbox-indeterminate, .mat-checkbox-checked {
+    &.mat-primary .mat-checkbox-background {
+      background-color: mat-color($primary, if($is-dark-theme, 200, 500));
+    }
+
+    &.mat-accent .mat-checkbox-background {
+      background-color: mat-color($accent);
+    }
+
+    &.mat-warn .mat-checkbox-background {
+      background-color: mat-color($warn);
+    }
+  }
+
+  .mat-checkbox-disabled {
+    &.mat-checkbox-checked, &.mat-checkbox-indeterminate {
+      .mat-checkbox-background {
+        background-color: $disabled-color;
+      }
+    }
+
+    &:not(.mat-checkbox-checked) {
+      .mat-checkbox-frame {
+        border-color: $disabled-color;
+      }
+    }
+
+    .mat-checkbox-label {
+      color: $disabled-color;
+    }
+
+    @include cdk-high-contrast {
+      opacity: 0.5;
+    }
+  }
+
+  // This one is moved down here so it can target both
+  // the theme colors and the disabled state.
+  @include cdk-high-contrast {
+    .mat-checkbox-background {
+      // Needs to be removed because it hides the checkbox outline.
+      background: none;
+    }
+  }
+
+  .mat-checkbox:not(.mat-checkbox-disabled) {
+    &.mat-primary .mat-checkbox-ripple .mat-ripple-element {
+      background-color: mat-color($primary, 0.26);
+    }
+
+    &.mat-accent .mat-checkbox-ripple .mat-ripple-element {
+      background-color: mat-color($accent, 0.26);
+    }
+
+    &.mat-warn .mat-checkbox-ripple .mat-ripple-element {
+      background-color: mat-color($warn, 0.26);
+    }
+  }
+  
+  .mat-checkbox-background, .mat-checkbox-frame{
+    border-radius: 0px !important;
+  }
+}
+
+@mixin mat-checkbox-typography($config) {
+  .mat-checkbox {
+    font-family: mat-font-family($config);
+  }
+
+  // TODO(kara): Remove this style when fixing vertical baseline
+  .mat-checkbox-layout .mat-checkbox-label {
+    line-height: mat-line-height($config, body-2);
+  }
+}
+
+// @mixin _mat-radio-color($palette) {
+//   $primary: map-get($theme, primary);
+//   $accent: map-get($theme, accent);
+//   $warn: map-get($theme, warn);
+//   $background: map-get($theme, background);
+//   $foreground: map-get($theme, foreground);
+//   $is-dark-theme: map-get($theme, is-dark);
+
+//   &.mat-radio-checked .mat-radio-outer-circle {
+//     border-color: mat-color($palette, if($is-dark-theme, 200, 500));
+//   }
+
+//   .mat-radio-inner-circle {
+//     background-color: mat-color($palette, if($is-dark-theme, 200, 500));
+//   }
+
+//   .mat-radio-ripple .mat-ripple-element {
+//     background-color: mat-color($palette, 0.26);
+//   }
+// }
+
+@mixin _mat-radio-color($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  &.mat-radio-checked .mat-radio-outer-circle {
+    border-color: mat-color($theme, divider, if($is-dark-theme, 200, 500));
+  }
+
+  .mat-radio-inner-circle {
+    background-color: mat-color($theme, if($is-dark-theme, 200, 500));
+  }
+
+  .mat-radio-ripple .mat-ripple-element {
+    background-color: mat-color($theme, 0.26);
+  }
+}
+
+@mixin mat-radio-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+  
+
+  .mat-radio-outer-circle {
+    border-color: mat-color($foreground, secondary-text, if($is-dark-theme, 200, 500));
+  }
+
+  .mat-radio-button {
+    &.mat-primary {
+      @include _mat-radio-color($primary);
+    }
+
+    &.mat-accent {
+      @include _mat-radio-color($accent);
+    }
+
+    &.mat-warn {
+      @include _mat-radio-color($warn);
+    }
+
+    // This needs extra specificity, because the classes above are combined
+    // (e.g. `.mat-radio-button.mat-accent`) which increases their specificity a lot.
+    // TODO: consider making the selectors into descendants (`.mat-primary .mat-radio-button`).
+    &.mat-radio-disabled {
+      &.mat-radio-checked .mat-radio-outer-circle,
+      .mat-radio-outer-circle {
+        border-color: mat-color($foreground, disabled);
+      }
+
+      .mat-radio-ripple .mat-ripple-element,
+      .mat-radio-inner-circle {
+        background-color: mat-color($foreground, disabled);
+      }
+
+      .mat-radio-label-content {
+        color: mat-color($foreground, disabled);
+      }
+    }
+  }
+}
+
+@mixin mat-radio-typography($config) {
+  .mat-radio-button {
+    font-family: mat-font-family($config);
+  }
+}
+
+
+// Our dark theme
+.dark-theme {
+    $dark-primary: mat-palette($fuse-blue, A);
+    $dark-accent:  mat-palette($fuse-grey, A400, A100, A700);
+    $dark-warn:    mat-palette($fuse-red);
+    $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+    
+    @include angular-material-theme($dark-theme);
+    // @include component-themes($dark-theme);
+  }
+  
+@include angular-material-theme($theme);
+body{
+    margin:0px;
+}
+

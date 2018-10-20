@@ -23,7 +23,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              // {
+              //   "input": "src/fuse-app-theme.scss"
+              // },
+              "src/styles.css",
+              "src/fuse-app-theme.scss"
+              
+
             ],
             "scripts": []
           },
