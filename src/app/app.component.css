@@ -1,22 +1,15 @@
-.example-h2 {
-    margin: 10px;
+.example-container {
+    /* position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; */
+    /* height: 800px; */
+  }
+  .example-icon {
+    padding: 0 14px;
   }
   
-  .example-section {
-    display: flex;
-    align-content: center;
-    align-items: center;
-    height: 60px;
-  }
-  
-  .example-margin {
-    margin: 10px;
-  }
-  .example-container {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .example-container > * {
-    width: 100%;
+  .example-spacer {
+    flex: 1 1 auto;
   }

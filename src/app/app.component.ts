@@ -21,6 +21,5 @@ export class AppComponent implements OnInit {
 
   toggleDarkTheme(checked: boolean) {
     this.themeService.setDarkTheme(checked);
-    // alert(this.themeService.isDarkTheme);
   }
 }

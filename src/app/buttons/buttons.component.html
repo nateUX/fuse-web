@@ -1,0 +1,286 @@
+<mat-card>
+  <h2>Basic Buttons</h2>
+  <div class="example-button-row">
+    <button mat-button>Basic</button>
+    <button mat-button color="primary">Primary</button>
+    <button mat-button color="accent">Accent</button>
+    <button mat-button color="warn">Warn</button>
+    <button mat-button disabled>Disabled</button>
+    <a mat-button routerLink=".">Link</a>
+  </div>
+</mat-card>
+
+<mat-card>
+  <h2>Raised Buttons</h2>
+  <div class="example-button-row">
+    <button mat-raised-button>Basic</button>
+    <button mat-raised-button color="primary">Primary</button>
+    <button mat-raised-button color="accent">Accent</button>
+    <button mat-raised-button color="warn">Warn</button>
+    <button mat-raised-button disabled>Disabled</button>
+    <a mat-raised-button routerLink=".">Link</a>
+  </div>
+</mat-card>
+
+<mat-card>
+  <h2>Stroked Buttons</h2>
+  <div class="example-button-row">
+    <button mat-stroked-button>Basic</button>
+    <button mat-stroked-button color="primary">Primary</button>
+    <button mat-stroked-button color="accent">Accent</button>
+    <button mat-stroked-button color="warn">Warn</button>
+    <button mat-stroked-button disabled>Disabled</button>
+    <a mat-stroked-button routerLink=".">Link</a>
+  </div>
+</mat-card>
+
+<mat-card>
+  <h2>Flat Buttons</h2>
+  <div class="example-button-row">
+    <button mat-flat-button>Basic</button>
+    <button mat-flat-button color="primary">Primary</button>
+    <button mat-flat-button color="accent">Accent</button>
+    <button mat-flat-button color="warn">Warn</button>
+    <button mat-flat-button disabled>Disabled</button>
+    <a mat-flat-button routerLink=".">Link</a>
+  </div>
+</mat-card>
+
+<mat-card>
+  <h2>Icon Buttons</h2>
+  <div class="example-button-row">
+    <button mat-icon-button>
+      <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+    </button>
+    <button mat-icon-button color="primary">
+      <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+    </button>
+    <button mat-icon-button color="accent">
+      <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+    </button>
+    <button mat-icon-button color="warn">
+      <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+    </button>
+    <button mat-icon-button disabled>
+      <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+    </button>
+  </div>
+</mat-card>
+
+<mat-card>
+  <h2>Fab Buttons</h2>
+  <div class="example-button-row">
+    <button mat-fab>B</button>
+    <button mat-fab color="primary">P</button>
+    <button mat-fab color="accent">A</button>
+    <button mat-fab color="warn">W</button>
+    <button mat-fab disabled>D</button>
+    <button mat-fab>
+      <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+    </button>
+    <a mat-fab routerLink=".">L</a>
+  </div>
+</mat-card>
+
+<mat-card>
+  <h2>Mini Fab Buttons</h2>
+  <div class="example-button-row">
+    <button mat-mini-fab>B</button>
+    <button mat-mini-fab color="primary">P</button>
+    <button mat-mini-fab color="accent">A</button>
+    <button mat-mini-fab color="warn">W</button>
+    <button mat-mini-fab disabled>D</button>
+    <button mat-mini-fab>
+      <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+    </button>
+    <a mat-mini-fab routerLink=".">L</a>
+  </div>
+</mat-card>
+
+<!-- Toggle Group -->
+
+<mat-card>
+  <mat-button-toggle-group #group="matButtonToggleGroup">
+    <mat-button-toggle value="left">
+      <mat-icon>format_align_left</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="center">
+      <mat-icon>format_align_center</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="right">
+      <mat-icon>format_align_right</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="justify" disabled>
+      <mat-icon>format_align_justify</mat-icon>
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+  <div class="example-selected-value">Selected value: {{group.value}}</div>
+</mat-card>
+
+<!-- Badge -->
+
+<mat-card>
+  <p>
+    <span matBadge="4" matBadgeOverlap="false">Text with a badge</span>
+  </p>
+</mat-card>
+
+<mat-card>
+  <p>
+    Button with a badge on the left
+    <button mat-raised-button color="primary" matBadge="8" matBadgePosition="before" matBadgeColor="accent">
+      Action
+    </button>
+  </p>
+</mat-card>
+
+<mat-card>
+  <p>
+    Icon with a badge
+    <mat-icon matBadge="15" matBadgeColor="warn">home</mat-icon>
+  </p>
+</mat-card>
+
+<!-- Chips -->
+
+<mat-card>
+  <mat-chip-list>
+    <mat-chip>One fish</mat-chip>
+    <mat-chip>Two fish</mat-chip>
+    <mat-chip color="primary" selected>Primary fish</mat-chip>
+    <mat-chip color="accent" selected>Accent fish</mat-chip>
+  </mat-chip-list>
+</mat-card>
+
+<!-- Icon -->
+<mat-card>
+  <mat-icon>home</mat-icon>
+  <mat-icon svgIcon="thumbs-up"></mat-icon>
+</mat-card>
+
+<!-- Progress Spinner -->
+<mat-card>
+  <mat-card-content>
+    <h2 class="example-h2">Progress spinner configuration</h2>
+
+    <section class="example-section">
+      <label class="example-margin">Color:</label>
+      <mat-radio-group [(ngModel)]="color">
+        <mat-radio-button class="example-margin" value="primary">
+          Primary
+        </mat-radio-button>
+        <mat-radio-button class="example-margin" value="accent">
+          Accent
+        </mat-radio-button>
+        <mat-radio-button class="example-margin" value="warn">
+          Warn
+        </mat-radio-button>
+      </mat-radio-group>
+    </section>
+
+    <section class="example-section">
+      <label class="example-margin">Mode:</label>
+      <mat-radio-group [(ngModel)]="mode">
+        <mat-radio-button class="example-margin" value="determinate">
+          Determinate
+        </mat-radio-button>
+        <mat-radio-button class="example-margin" value="indeterminate">
+          Indeterminate
+        </mat-radio-button>
+      </mat-radio-group>
+    </section>
+
+    <section class="example-section" *ngIf="mode === 'determinate'">
+      <label class="example-margin">Progress:</label>
+      <mat-slider class="example-margin" [(ngModel)]="value"></mat-slider>
+    </section>
+  </mat-card-content>
+</mat-card>
+<mat-card>
+  <mat-card-content>
+    <h2 class="example-h2">Result</h2>
+
+    <mat-progress-spinner class="example-margin" [color]="color" [mode]="mode" [value]="value">
+    </mat-progress-spinner>
+  </mat-card-content>
+</mat-card>
+
+<!-- Progress Bar -->
+<mat-card>
+  <mat-card-content>
+    <h2 class="example-h2">Progress bar configuration</h2>
+
+    <section class="example-section">
+      <label class="example-margin">Color:</label>
+      <mat-radio-group [(ngModel)]="color">
+        <mat-radio-button class="example-margin" value="primary">
+          Primary
+        </mat-radio-button>
+        <mat-radio-button class="example-margin" value="accent">
+          Accent
+        </mat-radio-button>
+        <mat-radio-button class="example-margin" value="warn">
+          Warn
+        </mat-radio-button>
+      </mat-radio-group>
+    </section>
+
+    <section class="example-section">
+      <label class="example-margin">Mode:</label>
+      <mat-radio-group [(ngModel)]="mode">
+        <mat-radio-button class="example-margin" value="determinate">
+          Determinate
+        </mat-radio-button>
+        <mat-radio-button class="example-margin" value="indeterminate">
+          Indeterminate
+        </mat-radio-button>
+        <mat-radio-button class="example-margin" value="buffer">
+          Buffer
+        </mat-radio-button>
+        <mat-radio-button class="example-margin" value="query">
+          Query
+        </mat-radio-button>
+      </mat-radio-group>
+    </section>
+
+    <section class="example-section" *ngIf="mode === 'determinate' || mode === 'buffer'">
+      <label class="example-margin">Progress:</label>
+      <mat-slider class="example-margin" [(ngModel)]="value"></mat-slider>
+    </section>
+    <section class="example-section" *ngIf="mode === 'buffer'">
+      <label class="example-margin">Buffer:</label>
+      <mat-slider class="example-margin" [(ngModel)]="bufferValue"></mat-slider>
+    </section>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-content>
+    <h2 class="example-h2">Result</h2>
+
+    <section class="example-section">
+      <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="value" [bufferValue]="bufferValue">
+      </mat-progress-bar>
+    </section>
+  </mat-card-content>
+</mat-card>
+
+<!-- Ripple -->
+<!-- <mat-card>
+  <mat-checkbox [(ngModel)]="centered" class="example-ripple-checkbox">Centered</mat-checkbox>
+  <mat-checkbox [(ngModel)]="disabled" class="example-ripple-checkbox">Disabled</mat-checkbox>
+  <mat-checkbox [(ngModel)]="unbounded" class="example-ripple-checkbox">Unbounded</mat-checkbox>
+
+  <mat-form-field class="example-ripple-form-field">
+    <input matInput [(ngModel)]="radius" type="number" placeholder="Radius">
+  </mat-form-field>
+  <mat-form-field class="example-ripple-form-field">
+    <input matInput [(ngModel)]="rcolor" type="text" placeholder="Color">
+  </mat-form-field>
+
+
+  <div class="example-ripple-container mat-elevation-z4" matRipple [matRippleCentered]="centered" [matRippleDisabled]="disabled"
+    [matRippleUnbounded]="unbounded" [matRippleRadius]="radius" [matRippleColor]="rcolor">
+    Click me
+  </div>
+</mat-card> -->

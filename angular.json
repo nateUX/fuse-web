@@ -22,14 +22,10 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [
-              // {
-              //   "input": "src/fuse-app-theme.scss"
-              // },
+            "styles": [              
               "src/styles.css",
-              "src/fuse-app-theme.scss"
-              
-
+              "src/fuse-app-theme.scss",
+              "src/fuse-app-typography.scss"
             ],
             "scripts": []
           },

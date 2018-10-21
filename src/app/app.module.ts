@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { ThemeService } from './core/services/theme.service';
 
+
 // import { MatButtonModule, MatCheckboxModule, MatCardModule, MatToolbarModule,
 // } from '@angular/material';
 
@@ -46,12 +47,31 @@ import {
   MatTreeModule,
 } from '@angular/material';
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ButtonsComponent } from './buttons/buttons.component';
+import { HomeComponent } from './home/home.component';
+import { FormsComponent } from './forms/forms.component';
+import { PopupsComponent, BottomSheetOverviewExampleSheet, DialogOverviewExampleDialog, PizzaPartyComponent } from './popups/popups.component';
+import { TypographyComponent } from './typography/typography.component';
+import { DataTableComponent } from './data-table/data-table.component';
+import { LayoutComponent } from './layout/layout.component';
 
 
 
 @NgModule({
+  entryComponents: [BottomSheetOverviewExampleSheet, DialogOverviewExampleDialog, PizzaPartyComponent],
   declarations: [
-    AppComponent
+    AppComponent,
+    ButtonsComponent,
+    HomeComponent,
+    FormsComponent,
+    PopupsComponent,
+    BottomSheetOverviewExampleSheet,
+    DialogOverviewExampleDialog,
+    TypographyComponent,
+    DataTableComponent,
+    LayoutComponent,
+    PizzaPartyComponent
   ],
   imports: [
     BrowserModule,
@@ -98,6 +118,8 @@ import { AppComponent } from './app.component';
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
   ],
   providers: [ThemeService],
   bootstrap: [AppComponent]

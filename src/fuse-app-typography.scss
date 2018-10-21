@@ -1,0 +1,69 @@
+@import '~@angular/material/theming';
+
+// Define a custom typography config that overrides the font-family as well as the
+// `headlines` and `body-1` levels.
+
+$fuse-typography-secondary: mat-typography-config($font-family: 'Roboto Condensed,sans-serif',
+$button: mat-typography-level(17px, 17px, 500),
+);
+
+$fuse-typography: mat-typography-config($font-family: '"Helvetica Neue",Helvetica,Arial,sans-serif'
+);
+
+@include angular-material-typography($fuse-typography);
+@include mat-button-typography($fuse-typography-secondary);
+
+// .mat-body,
+// .mat-body-strong,
+// .mat-body-2,
+// .mat-body,
+// .mat-body-1,
+// .mat-small,
+// .mat-caption,
+// {
+//   font-family: mat-font-family($fuse-typography-secondary);
+// }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.mat-typography h1,
+.mat-typography h2,
+.mat-typography h3,
+.mat-typography h4,
+.mat-typography h5,
+.mat-typography h6,
+.mat-h1,
+.mat-headline,
+.mat-h2,
+.mat-title,
+.mat-h3,
+.mat-subheading-2,
+.mat-h4,
+.mat-subheading-1,
+.mat-h5,
+.mat-h6,
+.mat-display-4,
+.mat-display-3,
+.mat-display-2,
+.mat-display-1,
+.mat-typography .mat-display-1,
+.mat-typography .mat-h1,
+.mat-typography .mat-headline,
+.mat-typography .mat-h2,
+.mat-typography .mat-title,
+.mat-typography .mat-h3,
+.mat-typography .mat-subheading-2,
+.mat-typography .mat-h4,
+.mat-typography .mat-subheading-1,
+.mat-typography .mat-h5,
+.mat-typography .mat-h6,
+.mat-typography .mat-display-4,
+.mat-typography .mat-display-3,
+.mat-typography .mat-display-2,
+  {
+  font-family: mat-font-family($fuse-typography-secondary);
+}

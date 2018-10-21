@@ -1,0 +1,37 @@
+<mat-card>
+  <h2>Bottom sheet</h2>
+  <p>You have received a file called "cat-picture.jpeg".</p>
+
+  <button mat-raised-button (click)="openBottomSheet()">Open file</button>
+</mat-card>
+
+<mat-card>
+  <h2>Dialog</h2>
+  <ol>
+    <li>
+      <mat-form-field>
+        <input matInput [(ngModel)]="name" placeholder="What's your name?">
+      </mat-form-field>
+    </li>
+    <li>
+      <button mat-raised-button (click)="openDialog()">Pick one</button>
+    </li>
+    <li *ngIf="animal">
+      You chose: <i>{{animal}}</i>
+    </li>
+  </ol>
+</mat-card>
+
+<mat-card>
+  <h2>Snackbar</h2>
+  <button mat-button (click)="openSnackBar()" aria-label="Show an example snack-bar">
+    Pizza party
+  </button>
+</mat-card>
+
+<mat-card>
+    <h2>Tooltip</h2>
+  <button mat-raised-button matTooltip="Info about the action" aria-label="Button that displays a tooltip when focused or hovered over">
+    Action
+  </button>
+</mat-card>
